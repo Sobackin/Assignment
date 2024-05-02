@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영화 검색 사이트</title>
-    <link
-      href="https://use.fontawesome.com/releases/v6.5.1/css/all.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <link href="https://use.fontawesome.com/releases/v6.5.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/style.css" />
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
@@ -16,17 +15,12 @@
 
   <body>
     <header>
-      <a onclick="location.reload(true)"
-      style="cursor: pointer;"><h1>YETCHA</h1></a>
+      <a onclick="location.reload(true)" style="cursor: pointer"><h1>YETCHA</h1></a>
     </header>
 
     <div class="searchBox">
       <form class="searchForm" action="" method="get">
-        <input
-          class="searchText"
-          type="text"
-          placeholder="검색해주세요."
-        />
+        <input class="searchText" type="text" placeholder="검색해주세요." />
         <button class="searchBtn" type="submit">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
@@ -34,11 +28,9 @@
     </div>
 
     <section class="cardList">
-      <div class="cards" >
-        
-      </div>
+      <div class="cards"></div>
     </section>
 
-    <script src="third.js"></script>
+    <script src="/Movie Search1/script1.js"></script>
   </body>
 </html>
