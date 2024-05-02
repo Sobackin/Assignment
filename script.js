@@ -3,29 +3,23 @@ const movieCardList = document.querySelector(".cards");
 const searchInput = document.querySelector(".searchText");
 const searchButton = document.querySelector(".searchBtn");
 
-
 const options = {
   method: "GET",
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OWJlZGJjYWY1M2UxM2RmZmFiYzM3MWI1ZWNlOGEyOSIsInN1YiI6IjY2MjhhNmFjMTc2YTk0MDE3ZjgyZmJlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cPZRvaS4O5UB76gkR75WPevxbPE8hBLORMhsLzJ7JM0",
-  },
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OWJlZGJjYWY1M2UxM2RmZmFiYzM3MWI1ZWNlOGEyOSIsInN1YiI6IjY2MjhhNmFjMTc2YTk0MDE3ZjgyZmJlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cPZRvaS4O5UB76gkR75WPevxbPE8hBLORMhsLzJ7JM0"
+  }
 };
 
-fetch(
-  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-  options
-)
+fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", options)
   .then((response) => response.json())
   // 오픈 API 복붙!
   .then((response) => {
-    movies = response.results
+    movies = response.results;
     addCardDiv(movies);
   })
-  .catch(err => console.error(err));
-
-
+  .catch((err) => console.error(err));
 
 const createCardDiv = (movie) => {
   const { id, poster_path, title, overview, vote_average } = movie;
@@ -74,19 +68,15 @@ const addCardDiv = (movies) => {
       const movieId = movieCard.getAttribute("id");
       alert(`영화 ID : ${movieId}`);
     }); // 생성한 카드에 클릭 이벤트 추가, 저장해둔 id를 가져와(get) 클릭 시 alert이 뜨도록 함
-});
+  });
 };
-
 
 const searchMovies = () => {
   const searchTitle = searchInput.value.toLowerCase();
-  const filteredMovies = movies.filter((movie) =>
-  movie.title.toLowerCase().includes(searchTitle)
-  );
-  
-  while (movieCardList.firstChild) {
-    movieCardList.firstChild.remove();
-  }
+  const filteredMovies = movies.filter((movie) => movie.title.toLowerCase().includes(searchTitle));
+
+  movieCardList.innerHTML = "";
+
   addCardDiv(filteredMovies);
   event.preventDefault();
 };

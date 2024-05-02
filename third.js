@@ -3,14 +3,11 @@ const options = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OWJlZGJjYWY1M2UxM2RmZmFiYzM3MWI1ZWNlOGEyOSIsInN1YiI6IjY2MjhhNmFjMTc2YTk0MDE3ZjgyZmJlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cPZRvaS4O5UB76gkR75WPevxbPE8hBLORMhsLzJ7JM0",
-  },
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OWJlZGJjYWY1M2UxM2RmZmFiYzM3MWI1ZWNlOGEyOSIsInN1YiI6IjY2MjhhNmFjMTc2YTk0MDE3ZjgyZmJlOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.cPZRvaS4O5UB76gkR75WPevxbPE8hBLORMhsLzJ7JM0"
+  }
 };
 
-fetch(
-  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-  options
-)
+fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", options)
   .then((response) => response.json())
   .then((response) => {
     movies = response.results;
@@ -46,7 +43,7 @@ function addDiv(movies) {
   });
 }
 
-//+ 수정 
+//+ 수정
 const searchInput = document.querySelector(".searchText");
 const searchButton = document.querySelector(".searchBtn");
 
@@ -61,7 +58,7 @@ const searchMovies = () => {
     } else {
       card.style.display = "none";
     }
-   event.preventDefault();
+    event.preventDefault();
   });
 };
 
